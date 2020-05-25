@@ -1,24 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import SearchBar from './components/SearchBar'
+import Logs from './components/Logs'
+import AddBtn from './components/AddBtn'
+import AddLogModal from './components/AddLogModal'
+import EditLogModal from './components/EditLogModal'
+import AddTechModal from './components/AddTechModal'
+import TechListModal from './components/TechListModal'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <SearchBar />
+      <div className="container">
+        <AddBtn />
+        <AddLogModal />
+        <EditLogModal />
+        <AddTechModal />
+        <TechListModal />
+        <Logs />
+      </div>
     </div>
   );
 }

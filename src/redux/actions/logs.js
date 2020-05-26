@@ -42,6 +42,13 @@ const updateLog = log => async dispatch => {
   dispatch({type: 'UPDATE_LOG', payload: log})
 }
 
+const searchLogs = text => async dispatch => {
+  const res = await fetch(`/logs?q=${text}`)
+  const data = await res.json()
+
+  dispatch({type: 'SET_LOGS', payload: data})
+}
+
 const setCurrent = (current) => ({type: 'SET_CURRENT', payload: current})
 
 const clearCurrent = () => ({type: 'CLEAR_CURRENT'})
@@ -52,5 +59,6 @@ export {
   deleteLog,
   updateLog,
   setCurrent,
-  clearCurrent
+  clearCurrent,
+  searchLogs
 }

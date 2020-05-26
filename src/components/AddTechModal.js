@@ -1,10 +1,17 @@
 import React, { useState } from "react";
+import {connect} from 'react-redux'
+import {addTech} from '../redux/actions/techs'
 
-const AddTechModal = () => {
+const AddTechModal = ({addTech}) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState('');
 
-  const onSubmit = () => {};
+  const onSubmit = () => {
+    if (firstName === '' || lastName === '') {
+      return;
+    } 
+    addTech({firstName, lastName})
+  };
 
   return (
     <div
@@ -54,4 +61,4 @@ const AddTechModal = () => {
   );
 };
 
-export default AddTechModal;
+export default connect(null, {addTech})(AddTechModal);
